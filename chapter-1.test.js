@@ -1,0 +1,45 @@
+const { sumOfSquares, newtonCubeRoot } = require("./chapter-1");
+
+describe("Chapter 1", () => {
+  let actual;
+  let expected;
+  describe("1.3", () => {
+    test("it returns 13 for 1,2,3", () => {
+      expected = 13;
+      actual = sumOfSquares(1, 2, 3);
+      expect(actual).toEqual(expected);
+    });
+
+    test("it returns 13 for 7,2,5", () => {
+      expected = 74;
+      actual = sumOfSquares(7, 2, 5);
+      expect(actual).toEqual(expected);
+    });
+
+    test("it returns 52 for 6,4,1", () => {
+      expected = 52;
+      actual = sumOfSquares(6, 4, 1);
+      expect(actual).toEqual(expected);
+    });
+  });
+
+  describe("1.8", () => {
+    test("It returns 3 for 27", () => {
+      expected = 3;
+      actual = parseInt(newtonCubeRoot(27, 5));
+      expect(actual).toEqual(expected);
+    });
+
+    test("It returns 8 for 512", () => {
+      expected = 8;
+      actual = parseInt(newtonCubeRoot(512, 3));
+      expect(actual).toEqual(expected);
+    });
+
+    test("It returns 6.35 for 256", () => {
+      expected = 6.35;
+      actual = Number(parseFloat(newtonCubeRoot(256, 3), 2).toFixed(2));
+      expect(actual).toEqual(expected);
+    });
+  });
+});
