@@ -32,4 +32,28 @@ const computeFuncIter = value => {
     return answerSum[value];
 }
 
-module.exports = { sumOfSquares, newtonCubeRoot, computeFunc, computeFuncIter  };
+const oddExp = (base, number) => {
+    let value = 1;
+    while(number > 0) {
+        value *= base;
+        number--;
+    }
+    return value;
+}
+
+const evenExp = (base, number) => {
+    const steps = number / 2;
+    let value = 1;
+    for(let i = 0; i < steps;++i) {
+        value *= base * base;
+    }
+
+    return value;
+}
+
+const fastExp = (base, number) => {
+    return number % 2 === 0 ? evenExp(base, number) : oddExp(base, number);   
+}
+
+
+module.exports = { sumOfSquares, newtonCubeRoot, computeFunc, computeFuncIter, fastExp  };

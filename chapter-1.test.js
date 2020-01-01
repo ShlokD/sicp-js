@@ -1,4 +1,4 @@
-const { sumOfSquares, newtonCubeRoot, computeFunc, computeFuncIter } = require("./chapter-1");
+const { sumOfSquares, newtonCubeRoot, computeFunc, computeFuncIter, fastExp } = require("./chapter-1");
 
 describe("Chapter 1", () => {
   let actual;
@@ -67,6 +67,30 @@ describe("Chapter 1", () => {
     test("It returns 4 for 3", () => {
       expected = 4;
       actual = computeFuncIter(3);
+      expect(actual).toEqual(expected);
+    });
+  });
+
+  describe("1.16", () => {
+    test("It returns 16 for 2,4", () => {
+      expected = 16;
+      actual = fastExp(2, 4);
+      expect(actual).toEqual(expected);
+    });
+
+    test("It returns 9 for 3m2", () => {
+      expected = 9;
+      actual = fastExp(3, 2);
+      expect(actual).toEqual(expected);
+    });
+    test("It returns 4096 for 2,12", () => {
+      expected = 4096;
+      actual = fastExp(2, 12);
+      expect(actual).toEqual(expected);
+    });
+    test("It returns 4096 for 8,12", () => {
+      expected = 68719476736;
+      actual = fastExp(8, 12);
       expect(actual).toEqual(expected);
     });
   });
