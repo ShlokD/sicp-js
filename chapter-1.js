@@ -18,4 +18,18 @@ const newtonCubeRoot = (number, guess) => {
     return goodEnough(number, guess) ? guess : newtonCubeRoot(number, improve(number, guess));
 }
 
-module.exports = { sumOfSquares, newtonCubeRoot  };
+
+const computeFunc = value => {
+    if(value < 3) return value;
+    else return computeFunc(value - 1) + 2 * computeFunc( value - 2) + 3 *  computeFunc(value - 3);
+};
+
+const computeFuncIter = value => {
+    const answerSum = [0,1,2];
+    for(let index = 3; index <= value; ++index) {
+        answerSum.push(answerSum[index - 1] + 2 * answerSum[index - 2] + 3 * answerSum[index - 3]);
+    }
+    return answerSum[value];
+}
+
+module.exports = { sumOfSquares, newtonCubeRoot, computeFunc, computeFuncIter  };

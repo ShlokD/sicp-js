@@ -1,4 +1,4 @@
-const { sumOfSquares, newtonCubeRoot } = require("./chapter-1");
+const { sumOfSquares, newtonCubeRoot, computeFunc, computeFuncIter } = require("./chapter-1");
 
 describe("Chapter 1", () => {
   let actual;
@@ -11,7 +11,7 @@ describe("Chapter 1", () => {
     });
 
     test("it returns 13 for 7,2,5", () => {
-      expected = 74;
+      expected = 74; 
       actual = sumOfSquares(7, 2, 5);
       expect(actual).toEqual(expected);
     });
@@ -39,6 +39,34 @@ describe("Chapter 1", () => {
     test("It returns 6.35 for 256", () => {
       expected = 6.35;
       actual = Number(parseFloat(newtonCubeRoot(256, 3), 2).toFixed(2));
+      expect(actual).toEqual(expected);
+    });
+  });
+
+  describe("1.11-a", () => {
+    test("It returns 0 for 0", () => {
+      expected = 0;
+      actual = computeFunc(0);
+      expect(actual).toEqual(expected);
+    });
+
+    test("It returns 4 for 3", () => {
+      expected = 4;
+      actual = computeFunc(3);
+      expect(actual).toEqual(expected);
+    });
+  });
+
+  describe("1.11-b", () => {
+    test("It returns 0 for 0", () => {
+      expected = 0;
+      actual = computeFuncIter(0);
+      expect(actual).toEqual(expected);
+    });
+
+    test("It returns 4 for 3", () => {
+      expected = 4;
+      actual = computeFuncIter(3);
       expect(actual).toEqual(expected);
     });
   });
